@@ -6,7 +6,6 @@
       fnOnScroll();
     });
 
-
     $(window).on('resize', function () {
       fnOnResize();
     });
@@ -26,8 +25,6 @@
       agPosY = $(window).scrollTop();
 
       fnUpdateFrame();
-
-      fnAnimateCards();
     }
 
     function fnOnResize() {
@@ -67,14 +64,6 @@
     function fnUpdateFrame() {
       agFlag || requestAnimationFrame(fnUpdateWindow);
       agFlag = true;
-    }
-
-    function fnAnimateCards() {
-      agTimelineItem.each(function () {
-        var agTop = $(this).offset().top;
-
-        (agTop + agPosY - $(window).scrollTop()) <= agPosY + .9 * agOuterHeight && $(this).hasClass('js-ag-animated') && $(this).addClass('js-ag-show');
-      })
     }
 
 
